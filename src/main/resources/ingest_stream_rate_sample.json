@@ -1,0 +1,32 @@
+{
+  "mycompany": {
+    "data": {
+      "pipeline": {
+        "conf": {
+          "common": {
+            "rootOutputPath": "/tmp/deltalake",
+            "tablePathName": "/sample/1/rate"
+          },
+          "dev": {
+            "checkpointPath": "/tmp/deltalake/dev/sample/1/rate/_checkpoint",
+            "outputPath": "/tmp/deltalake/dev/sample/1/rate",
+            "rowsPerSecond": 1,
+            "triggerInterval": "30s"
+          },
+          "prod": {
+            "checkpointPath": "/tmp/deltalake/prod/sample/1/rate/_checkpoint",
+            "outputPath": "/tmp/deltalake/prod/sample/1/rate",
+            "rowsPerSecond": 1000,
+            "triggerInterval": "1m"
+          },
+          "qa": {
+            "checkpointPath": "/tmp/deltalake/qa/sample/1/rate/_checkpoint",
+            "outputPath": "/tmp/deltalake/qa/sample/1/rate",
+            "rowsPerSecond": 1000,
+            "triggerInterval": "1m"
+          }
+        }
+      }
+    }
+  }
+}
