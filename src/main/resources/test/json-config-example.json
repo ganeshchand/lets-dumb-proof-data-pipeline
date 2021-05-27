@@ -1,0 +1,22 @@
+{
+  "dev": {
+    "outputPath": "/tmp/deltalake/dev/sample/1/rate",
+    "checkpointPath": "/tmp/deltalake/dev/sample/1/rate/_checkpoint",
+    "rowsPerSecond": 1,
+    "triggerInterval": "30s",
+    "tuning": [
+      "spark.sql.shuffle.partitions=10"
+    ]
+  },
+  "prod": {
+    "outputPath": "/tmp/deltalake/prod/sample/1/rate",
+    "checkpointPath": "/tmp/deltalake/prod/sample/1/rate/_checkpoint",
+    "rowsPerSecond": 1000,
+    "triggerInterval": "1m",
+    "tuning": [
+      "spark.sql.shuffle.partitions=10"
+    ]
+  }
+}
+
+

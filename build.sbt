@@ -9,7 +9,7 @@ lazy val dumbProofPipeline = (project in file("."))
   .enablePlugins(BuildInfoPlugin)
   .settings(
     buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
-    buildInfoPackage := "com.databricks",
+    buildInfoPackage := "com.dumbproof",
     libraryDependencies ++= commonDependencies
   )
 
@@ -22,7 +22,8 @@ lazy val commonDependencies = Seq(
   "org.apache.spark" %% "spark-sql" % sparkVersion % Provided,
   "io.delta" %% "delta-core" % deltaVersion % Provided,
   "org.scalatest" %% "scalatest" % "3.2.3" % Test,
-  "com.github.pureconfig" %% "pureconfig" % "0.14.0"
+  "com.github.pureconfig" %% "pureconfig" % "0.15.0",
+  "com.databricks" %% "dbutils-api" % "0.0.5" % Provided
 )
 
 lazy val assemblySettings = Seq(
@@ -44,8 +45,10 @@ assemblyExcludedJars in assembly := {
 }
 
 assemblyShadeRules in assembly ++= Seq(
-  ShadeRule.rename("com.typesafe.config.**" -> "dumbproof.@1")
-    .inLibrary("com.typesafe" % "config" % "1.4.0")
-    .inProject
+  ShadeRule.rename("com.typesafe.config.**" -> "com.dumbproof.typesafe.config.@1")
+    .inAll
+//    .inLibrary("com.typesafe" % "config" % "1.4.1")
+//    .inProject
 )
 
+//assemblyShadeRules in assembly := Seq(ShadeRule.rename("shapeless.**" -> "new_shapeless.@1").inAll)
