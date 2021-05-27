@@ -4,5 +4,5 @@ This is a git repo for the for my Data+AI Summit talk titled - [Let’s Dumb-Pro
 
 The PDF version of presentation is available in `docs` folder
 
-Notebooks used in the presentations are available in `notebooks' folder 
+Notebooks used in the presentations are available in `notebooks` folder 
 
